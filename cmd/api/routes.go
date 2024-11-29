@@ -21,6 +21,7 @@ func (app *application) routes() *gin.Engine {
 	r.POST(generateLink, app.GenerateLink)
 
 	r.GET(redirectLink, app.RedirectLink)
+
 	r.HEAD(redirectLink, app.RedirectLink)
 
 	return r

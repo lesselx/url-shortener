@@ -10,4 +10,7 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :4000
-[GIN] 2024/11/29 - 16:31:06 | 301 |         507µs |             ::1 | GET      "/api/short_urls/z4mHKU"
+[GIN] 2024/11/29 - 19:48:10 | 301 |      2.6739ms |             ::1 | GET      "/api/short_urls/SJ7U6q"
+[GIN] 2024/11/29 - 19:48:45 | 201 |     18.3793ms |             ::1 | POST     "/api/short_urls"
+[GIN] 2024/11/29 - 19:48:52 | 201 |     23.0077ms |             ::1 | POST     "/api/short_urls"
+[GIN] 2024/11/29 - 19:49:30 | 301 |      1.0887ms |             ::1 | GET      "/api/short_urls/W2L7Jp"

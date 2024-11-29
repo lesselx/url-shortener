@@ -36,6 +36,7 @@ const (
 	charset   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 )
 
+// This handler is to generate a short link
 func (app *application) GenerateLink(c *gin.Context) {
 	var json InputRequest
 
@@ -77,6 +78,7 @@ func (app *application) GenerateLink(c *gin.Context) {
 
 }
 
+// This handler is to redirect the short link to the original link
 func (app *application) RedirectLink(c *gin.Context) {
 
 	var alias RedirectLink
@@ -102,6 +104,7 @@ func (app *application) RedirectLink(c *gin.Context) {
 
 }
 
+// This helper function is to generate a random alias, so I used base62 as the charset
 func (app *application) generateAlias() (string, error) {
 	var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
 	var link data.Link
@@ -113,7 +116,7 @@ func (app *application) generateAlias() (string, error) {
 			shortKey[i] = charset[randomIdx]
 		}
 
-		err := app.db.First(&link, "alias = ?", shortKey).Error
+		err := app.db.First(&link, "alias = ?", string(shortKey)).Error
 
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return string(shortKey), nil
