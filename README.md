@@ -24,7 +24,7 @@
 
 ### 2. Redirect to the Original Link with its Shortlink
 - **Endpoint:** `/api/short_urls/:alias`
-- **Method:** `GET`
+- **Method:** `GET, HEAD`
 
 ## Running the Application
 
