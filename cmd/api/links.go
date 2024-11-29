@@ -19,16 +19,16 @@ type GenericResponse struct {
 }
 
 type InputRequest struct {
-	OriginUrl *string `json:"origin_url" binding:"required"`
+	OriginUrl string `json:"origin_url" binding:"required"`
 }
 
 type LinkResponse struct {
-	ShortUrl *string   `json:"short_url"`
+	ShortUrl string    `json:"short_url"`
 	Created  time.Time `json:"created_at"`
 }
 
 type RedirectLink struct {
-	Alias *string `uri:"alias" binding:"required"`
+	Alias string `uri:"alias" binding:"required"`
 }
 
 const (
@@ -53,7 +53,7 @@ func (app *application) GenerateLink(c *gin.Context) {
 	}
 
 	link := data.Link{
-		OriginUrl: json.OriginUrl,
+		OriginUrl: &json.OriginUrl,
 		Alias:     &alias,
 	}
 
@@ -70,7 +70,7 @@ func (app *application) GenerateLink(c *gin.Context) {
 		GenericResponse{
 			StatusCode: http.StatusCreated,
 			Data: LinkResponse{
-				ShortUrl: &shortenUrl,
+				ShortUrl: shortenUrl,
 				Created:  link.CreatedAt,
 			},
 		},
